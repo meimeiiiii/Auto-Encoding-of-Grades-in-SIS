@@ -27,12 +27,13 @@ Partial Class AEGS
         Me.LabelUN = New System.Windows.Forms.Label()
         Me.LabelPW = New System.Windows.Forms.Label()
         Me.TextBoxPW = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelGS = New System.Windows.Forms.Label()
         Me.BtnBrowse = New System.Windows.Forms.Button()
         Me.DialogBrowse = New System.Windows.Forms.OpenFileDialog()
         Me.TextBoxGS = New System.Windows.Forms.TextBox()
         Me.BtnEncode = New System.Windows.Forms.Button()
         Me.WebBrowser = New System.Windows.Forms.WebBrowser()
+        Me.GetGSTemplate = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBoxUN
@@ -68,14 +69,14 @@ Partial Class AEGS
         Me.TextBoxPW.Size = New System.Drawing.Size(111, 20)
         Me.TextBoxPW.TabIndex = 2
         '
-        'Label1
+        'LabelGS
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(384, 50)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "GradeSheet"
+        Me.LabelGS.AutoSize = True
+        Me.LabelGS.Location = New System.Drawing.Point(384, 50)
+        Me.LabelGS.Name = "LabelGS"
+        Me.LabelGS.Size = New System.Drawing.Size(64, 13)
+        Me.LabelGS.TabIndex = 4
+        Me.LabelGS.Text = "GradeSheet"
         '
         'BtnBrowse
         '
@@ -115,17 +116,27 @@ Partial Class AEGS
         Me.WebBrowser.Size = New System.Drawing.Size(831, 362)
         Me.WebBrowser.TabIndex = 8
         '
+        'GetGSTemplate
+        '
+        Me.GetGSTemplate.Location = New System.Drawing.Point(703, 12)
+        Me.GetGSTemplate.Name = "GetGSTemplate"
+        Me.GetGSTemplate.Size = New System.Drawing.Size(140, 23)
+        Me.GetGSTemplate.TabIndex = 9
+        Me.GetGSTemplate.Text = "Get Gradesheet Template"
+        Me.GetGSTemplate.UseVisualStyleBackColor = True
+        '
         'AEGS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(855, 448)
+        Me.Controls.Add(Me.GetGSTemplate)
         Me.Controls.Add(Me.WebBrowser)
         Me.Controls.Add(Me.BtnEncode)
         Me.Controls.Add(Me.TextBoxGS)
         Me.Controls.Add(Me.BtnBrowse)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.LabelGS)
         Me.Controls.Add(Me.LabelPW)
         Me.Controls.Add(Me.TextBoxPW)
         Me.Controls.Add(Me.LabelUN)
@@ -142,10 +153,11 @@ Partial Class AEGS
     Friend WithEvents LabelUN As Label
     Friend WithEvents LabelPW As Label
     Friend WithEvents TextBoxPW As TextBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelGS As Label
     Friend WithEvents BtnBrowse As Button
     Friend WithEvents DialogBrowse As OpenFileDialog
     Friend WithEvents TextBoxGS As TextBox
     Friend WithEvents BtnEncode As Button
     Friend WithEvents WebBrowser As WebBrowser
+    Friend WithEvents GetGSTemplate As Button
 End Class

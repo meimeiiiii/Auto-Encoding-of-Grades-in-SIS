@@ -9,3 +9,15 @@ C:\Users\Renson Pauline\source\repos\Auto Encoding of Grades in SIS\Auto Encodin
 C:\Users\Renson Pauline\source\repos\Auto Encoding of Grades in SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.exe
 C:\Users\Renson Pauline\source\repos\Auto Encoding of Grades in SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.xml
 C:\Users\Renson Pauline\source\repos\Auto Encoding of Grades in SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.pdb
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.exe.config
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.exe
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.pdb
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.xml
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbprojAssemblyReference.cache
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbproj.ResolveComReference.cache
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto_Encoding_of_Grades_in_SIS.AEGS.resources
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto_Encoding_of_Grades_in_SIS.Resources.resources
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbproj.GenerateResource.cache
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.exe
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.xml
+C:\Users\Renson Pauline\Documents\Meimei Files\School\5th year 2nd Sem\ELEC3\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.pdb
