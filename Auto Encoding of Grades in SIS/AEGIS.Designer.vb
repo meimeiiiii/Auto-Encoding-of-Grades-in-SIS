@@ -34,6 +34,7 @@ Partial Class AEGS
         Me.BtnEncode = New System.Windows.Forms.Button()
         Me.WebBrowser = New System.Windows.Forms.WebBrowser()
         Me.GetGSTemplate = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
         '
         'TextBoxUN
@@ -125,6 +126,15 @@ Partial Class AEGS
         Me.GetGSTemplate.Text = "Get Gradesheet Template"
         Me.GetGSTemplate.UseVisualStyleBackColor = True
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.DarkRed
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(253, 448)
+        Me.Panel1.TabIndex = 10
+        '
         'AEGS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -141,6 +151,7 @@ Partial Class AEGS
         Me.Controls.Add(Me.TextBoxPW)
         Me.Controls.Add(Me.LabelUN)
         Me.Controls.Add(Me.TextBoxUN)
+        Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "AEGS"
         Me.Text = "Auto Encoding of Grades in SIS"
@@ -160,4 +171,5 @@ Partial Class AEGS
     Friend WithEvents BtnEncode As Button
     Friend WithEvents WebBrowser As WebBrowser
     Friend WithEvents GetGSTemplate As Button
+    Friend WithEvents Panel1 As Panel
 End Class
