@@ -65,8 +65,8 @@ Public Class AEGS
                             If year <> "" Then
                                 If section <> "" Then
                                     MessageBox.Show("Completely filled out")
-                                    'WebBrowser.Navigate("https://pup.edu.ph")
-                                    Process.Start("https://www.twitter.com")
+                                    WebBrowser.Navigate("sisfaculty.pup.edu.ph")
+                                    'Process.Start("https://www.twitter.com")
 
                                 End If
                             End If
@@ -85,6 +85,16 @@ Public Class AEGS
     Private Sub TextBoxGS_TextChanged(sender As Object, e As EventArgs) Handles TextBoxGS.TextChanged
         FileNameGS = TextBoxGS.Text
     End Sub
+
+    Private Sub GetGSTemplate_MouseEnter(sender As Object, e As EventArgs) Handles GetGSTemplate.MouseEnter
+        GetGSTemplate.ForeColor = Color.Tomato
+    End Sub
+
+    Private Sub GetGSTemplate_MouseLeave(sender As Object, e As EventArgs) Handles GetGSTemplate.MouseLeave
+        GetGSTemplate.ForeColor = Color.Firebrick
+    End Sub
+
+
 
     Private Sub GetGSTemplate_Click(sender As Object, e As EventArgs) Handles GetGSTemplate.Click
         'CREATE GRADE SHEET TEMPLATE IN EXCEL
