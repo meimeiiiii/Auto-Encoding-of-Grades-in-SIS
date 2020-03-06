@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Auto_Encoding_of_Grades_in_SIS.Form1
+            Me.MainForm = Global.Auto_Encoding_of_Grades_in_SIS.AEGS
         End Sub
     End Class
 End Namespace

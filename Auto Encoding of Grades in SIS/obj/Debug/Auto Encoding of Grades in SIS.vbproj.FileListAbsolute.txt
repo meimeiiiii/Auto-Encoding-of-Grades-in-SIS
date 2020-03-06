@@ -42,3 +42,7 @@ C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto E
 C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.exe
 C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.xml
 C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.pdb
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.exe.config
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.exe
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.pdb
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\bin\Debug\Auto Encoding of Grades in SIS.xml
