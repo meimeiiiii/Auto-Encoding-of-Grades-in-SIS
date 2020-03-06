@@ -33,3 +33,12 @@ C:\Users\Admin\source\repos\Auto-Encoding-of-Grades-in-SIS-master\Auto Encoding 
 C:\Users\Admin\source\repos\Auto-Encoding-of-Grades-in-SIS-master\Auto Encoding of Grades in SIS\obj\Debug\Auto_Encoding_of_Grades_in_SIS.AEGS.resources
 C:\Users\Admin\source\repos\Auto-Encoding-of-Grades-in-SIS-master\Auto Encoding of Grades in SIS\obj\Debug\Auto_Encoding_of_Grades_in_SIS.Resources.resources
 C:\Users\Admin\source\repos\Auto-Encoding-of-Grades-in-SIS-master\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbproj.GenerateResource.cache
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbprojAssemblyReference.cache
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbproj.ResolveComReference.cache
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto_Encoding_of_Grades_in_SIS.AEGS.resources
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto_Encoding_of_Grades_in_SIS.Resources.resources
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbproj.GenerateResource.cache
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.vbproj.CoreCompileInputs.cache
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.exe
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.xml
+C:\Users\kimlh.SENGABLHER\Documents\GitHub\Auto-Encoding-of-Grades-in-SIS\Auto Encoding of Grades in SIS\obj\Debug\Auto Encoding of Grades in SIS.pdb

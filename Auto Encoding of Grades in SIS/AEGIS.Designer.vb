@@ -36,6 +36,7 @@ Partial Class AEGS
         Me.GetGSTemplate = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -58,7 +59,7 @@ Partial Class AEGS
         Me.LabelUN.ForeColor = System.Drawing.Color.Gainsboro
         Me.LabelUN.Location = New System.Drawing.Point(12, 132)
         Me.LabelUN.Name = "LabelUN"
-        Me.LabelUN.Size = New System.Drawing.Size(82, 20)
+        Me.LabelUN.Size = New System.Drawing.Size(81, 18)
         Me.LabelUN.TabIndex = 1
         Me.LabelUN.Text = "User Name"
         '
@@ -71,7 +72,7 @@ Partial Class AEGS
         Me.LabelPW.ForeColor = System.Drawing.Color.Gainsboro
         Me.LabelPW.Location = New System.Drawing.Point(12, 206)
         Me.LabelPW.Name = "LabelPW"
-        Me.LabelPW.Size = New System.Drawing.Size(71, 20)
+        Me.LabelPW.Size = New System.Drawing.Size(70, 18)
         Me.LabelPW.TabIndex = 3
         Me.LabelPW.Text = "Password"
         '
@@ -94,7 +95,7 @@ Partial Class AEGS
         Me.LabelGS.ForeColor = System.Drawing.Color.LightGray
         Me.LabelGS.Location = New System.Drawing.Point(14, 286)
         Me.LabelGS.Name = "LabelGS"
-        Me.LabelGS.Size = New System.Drawing.Size(87, 20)
+        Me.LabelGS.Size = New System.Drawing.Size(86, 18)
         Me.LabelGS.TabIndex = 4
         Me.LabelGS.Text = "GradeSheet"
         '
@@ -105,11 +106,11 @@ Partial Class AEGS
         Me.BtnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBrowse.Font = New System.Drawing.Font("Montserrat Light", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBrowse.ForeColor = System.Drawing.Color.Gainsboro
-        Me.BtnBrowse.Location = New System.Drawing.Point(29, 338)
+        Me.BtnBrowse.Location = New System.Drawing.Point(29, 347)
         Me.BtnBrowse.Name = "BtnBrowse"
-        Me.BtnBrowse.Size = New System.Drawing.Size(85, 31)
+        Me.BtnBrowse.Size = New System.Drawing.Size(202, 31)
         Me.BtnBrowse.TabIndex = 5
-        Me.BtnBrowse.Text = "Browse"
+        Me.BtnBrowse.Text = "Browse Grade Sheet"
         Me.BtnBrowse.UseVisualStyleBackColor = False
         '
         'DialogBrowse
@@ -134,11 +135,11 @@ Partial Class AEGS
         Me.BtnEncode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEncode.Font = New System.Drawing.Font("Montserrat Light", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEncode.ForeColor = System.Drawing.Color.Gainsboro
-        Me.BtnEncode.Location = New System.Drawing.Point(140, 338)
+        Me.BtnEncode.Location = New System.Drawing.Point(54, 442)
         Me.BtnEncode.Name = "BtnEncode"
-        Me.BtnEncode.Size = New System.Drawing.Size(91, 31)
+        Me.BtnEncode.Size = New System.Drawing.Size(146, 31)
         Me.BtnEncode.TabIndex = 7
-        Me.BtnEncode.Text = "Encode"
+        Me.BtnEncode.Text = "Encode Grades"
         Me.BtnEncode.UseVisualStyleBackColor = False
         '
         'WebBrowser
@@ -165,6 +166,7 @@ Partial Class AEGS
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DarkRed
+        Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.BtnBrowse)
         Me.Panel1.Controls.Add(Me.BtnEncode)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -187,11 +189,22 @@ Partial Class AEGS
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label1.Font = New System.Drawing.Font("Montserrat Black", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Location = New System.Drawing.Point(6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(260, 104)
+        Me.Label1.Size = New System.Drawing.Size(256, 92)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "AEGiS"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Stentiga", 8.999999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Goldenrod
+        Me.Label2.Location = New System.Drawing.Point(177, 80)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(59, 14)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "by AGMU"
         '
         'AEGS
         '
@@ -228,4 +241,5 @@ Partial Class AEGS
     Friend WithEvents GetGSTemplate As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
