@@ -37,6 +37,8 @@ Partial Class AEGS
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelURL = New System.Windows.Forms.Label()
+        Me.TextBoxURL = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -46,7 +48,7 @@ Partial Class AEGS
         Me.TextBoxUN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxUN.Font = New System.Drawing.Font("Montserrat", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxUN.ForeColor = System.Drawing.Color.White
-        Me.TextBoxUN.Location = New System.Drawing.Point(12, 155)
+        Me.TextBoxUN.Location = New System.Drawing.Point(12, 208)
         Me.TextBoxUN.Name = "TextBoxUN"
         Me.TextBoxUN.Size = New System.Drawing.Size(235, 24)
         Me.TextBoxUN.TabIndex = 0
@@ -58,7 +60,7 @@ Partial Class AEGS
         Me.LabelUN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.LabelUN.Font = New System.Drawing.Font("Montserrat Light", 9.7!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelUN.ForeColor = System.Drawing.Color.Gainsboro
-        Me.LabelUN.Location = New System.Drawing.Point(12, 132)
+        Me.LabelUN.Location = New System.Drawing.Point(12, 187)
         Me.LabelUN.Name = "LabelUN"
         Me.LabelUN.Size = New System.Drawing.Size(81, 18)
         Me.LabelUN.TabIndex = 1
@@ -71,7 +73,7 @@ Partial Class AEGS
         Me.LabelPW.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.LabelPW.Font = New System.Drawing.Font("Montserrat Light", 9.7!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelPW.ForeColor = System.Drawing.Color.Gainsboro
-        Me.LabelPW.Location = New System.Drawing.Point(12, 206)
+        Me.LabelPW.Location = New System.Drawing.Point(9, 251)
         Me.LabelPW.Name = "LabelPW"
         Me.LabelPW.Size = New System.Drawing.Size(70, 18)
         Me.LabelPW.TabIndex = 3
@@ -83,7 +85,7 @@ Partial Class AEGS
         Me.TextBoxPW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxPW.Font = New System.Drawing.Font("Montserrat", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxPW.ForeColor = System.Drawing.Color.White
-        Me.TextBoxPW.Location = New System.Drawing.Point(12, 229)
+        Me.TextBoxPW.Location = New System.Drawing.Point(12, 272)
         Me.TextBoxPW.Name = "TextBoxPW"
         Me.TextBoxPW.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.TextBoxPW.Size = New System.Drawing.Size(235, 23)
@@ -95,7 +97,7 @@ Partial Class AEGS
         Me.LabelGS.BackColor = System.Drawing.Color.Transparent
         Me.LabelGS.Font = New System.Drawing.Font("Montserrat Light", 9.7!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelGS.ForeColor = System.Drawing.Color.LightGray
-        Me.LabelGS.Location = New System.Drawing.Point(14, 286)
+        Me.LabelGS.Location = New System.Drawing.Point(12, 313)
         Me.LabelGS.Name = "LabelGS"
         Me.LabelGS.Size = New System.Drawing.Size(86, 18)
         Me.LabelGS.TabIndex = 4
@@ -108,7 +110,7 @@ Partial Class AEGS
         Me.BtnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBrowse.Font = New System.Drawing.Font("Montserrat Light", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBrowse.ForeColor = System.Drawing.Color.Gainsboro
-        Me.BtnBrowse.Location = New System.Drawing.Point(29, 347)
+        Me.BtnBrowse.Location = New System.Drawing.Point(29, 365)
         Me.BtnBrowse.Name = "BtnBrowse"
         Me.BtnBrowse.Size = New System.Drawing.Size(202, 31)
         Me.BtnBrowse.TabIndex = 5
@@ -126,7 +128,7 @@ Partial Class AEGS
         Me.TextBoxGS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxGS.Font = New System.Drawing.Font("Montserrat", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxGS.ForeColor = System.Drawing.Color.White
-        Me.TextBoxGS.Location = New System.Drawing.Point(12, 309)
+        Me.TextBoxGS.Location = New System.Drawing.Point(12, 334)
         Me.TextBoxGS.Name = "TextBoxGS"
         Me.TextBoxGS.Size = New System.Drawing.Size(235, 23)
         Me.TextBoxGS.TabIndex = 6
@@ -169,6 +171,8 @@ Partial Class AEGS
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DarkRed
+        Me.Panel1.Controls.Add(Me.TextBoxURL)
+        Me.Panel1.Controls.Add(Me.LabelURL)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.BtnBrowse)
         Me.Panel1.Controls.Add(Me.BtnEncode)
@@ -209,6 +213,31 @@ Partial Class AEGS
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "AEGiS"
         '
+        'LabelURL
+        '
+        Me.LabelURL.AutoSize = True
+        Me.LabelURL.BackColor = System.Drawing.Color.Transparent
+        Me.LabelURL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LabelURL.Font = New System.Drawing.Font("Montserrat Light", 9.7!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelURL.ForeColor = System.Drawing.Color.Gainsboro
+        Me.LabelURL.Location = New System.Drawing.Point(12, 123)
+        Me.LabelURL.Name = "LabelURL"
+        Me.LabelURL.Size = New System.Drawing.Size(35, 18)
+        Me.LabelURL.TabIndex = 12
+        Me.LabelURL.Text = "URL"
+        '
+        'TextBoxURL
+        '
+        Me.TextBoxURL.BackColor = System.Drawing.Color.Maroon
+        Me.TextBoxURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxURL.Font = New System.Drawing.Font("Montserrat", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxURL.ForeColor = System.Drawing.Color.White
+        Me.TextBoxURL.Location = New System.Drawing.Point(12, 144)
+        Me.TextBoxURL.Name = "TextBoxURL"
+        Me.TextBoxURL.Size = New System.Drawing.Size(235, 24)
+        Me.TextBoxURL.TabIndex = 13
+        Me.TextBoxURL.Text = "http://192.168.254.118:8081/AEGiS-Test-Environment/"
+        '
         'AEGS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -245,4 +274,6 @@ Partial Class AEGS
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents LabelURL As Label
+    Friend WithEvents TextBoxURL As TextBox
 End Class

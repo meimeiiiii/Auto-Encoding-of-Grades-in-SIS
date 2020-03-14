@@ -5,6 +5,7 @@ Public Class AEGS
     Dim FileNameGS As String            'FILE NAME - GRADE SHEET EXCEL FILE
     Dim username As String
     Dim password As String
+    Dim url As String
 
     Private Sub AEGS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'INITIALIZATION
@@ -71,7 +72,9 @@ Public Class AEGS
 
             If dept <> "" And sy <> "" And sem <> "" And subjCode <> "" And section <> "" Then
                 MessageBox.Show("Completely filled out")
-                WebBrowser.Navigate("http://192.168.254.118:8081/AEGiS-Test-Environment/")
+
+                url = TextBoxURL.Text
+                WebBrowser.Navigate(url)
 
                 WaitForPageLoad()
 
@@ -139,28 +142,6 @@ Public Class AEGS
                     End If
                 Next
 
-                'For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("table")
-                '    Dim tables As HtmlElementCollection = Me.WebBrowser.Document.GetElementsByTagName("table")
-                '    For Each tbl As HtmlElement In tables
-                '        For Each row As HtmlElement In tbl.All
-                '            For Each cell As HtmlElement In row.All
-                '                If cell.InnerText = section Then
-                '                    MessageBox.Show("correct section " & cell.InnerText)
-
-
-                '                Else
-                '                    Exit For
-                '                End If
-
-                '            Next
-                '        Next
-                '    Next
-
-
-                '    Exit For
-                '    MessageBox.Show("table done")
-                'Next
-
                 For Each button As HtmlElement In WebBrowser.Document.GetElementsByTagName("button")
                     If button.GetAttribute("type") = "submit" And button.GetAttribute("value") = "<U>" & section & "</U>" Then
                         button.Focus()
@@ -186,7 +167,6 @@ Public Class AEGS
                     MessageBox.Show("Encoding will now start.")
 
                     'ENCODE
-
 
                     'Excel GS LOOP
 
@@ -261,11 +241,10 @@ Public Class AEGS
                     MessageBox.Show("Encoding done. SIS will now logout and excel file will be saved.")
 
                     WebBrowser.Document.GetElementById("signout").InvokeMember("click")
-                    WebBrowser.Dispose()
+                    'WebBrowser.Dispose()
                 End If
 
             End If
-
 
             xlWb.Save()
             xlWb.Close(True, misValue, misValue)
@@ -274,7 +253,6 @@ Public Class AEGS
             releaseObject(xlWs)
             releaseObject(xlWb)
             releaseObject(xlApp)
-
 
         Else
             MessageBox.Show("The file " + FileNameGS + " does not exist.")
@@ -294,8 +272,6 @@ Public Class AEGS
     Private Sub GetGSTemplate_MouseLeave(sender As Object, e As EventArgs) Handles GetGSTemplate.MouseLeave
         GetGSTemplate.ForeColor = Color.Firebrick
     End Sub
-
-
 
     Private Sub GetGSTemplate_Click(sender As Object, e As EventArgs) Handles GetGSTemplate.Click
         'CREATE GRADE SHEET TEMPLATE IN EXCEL
@@ -429,6 +405,14 @@ Public Class AEGS
             pageready = True
             RemoveHandler WebBrowser.DocumentCompleted, New WebBrowserDocumentCompletedEventHandler(AddressOf PageWaiter)
         End If
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles LabelURL.Click
+
+    End Sub
+
+    Private Sub TextBoxURL_TextChanged(sender As Object, e As EventArgs) Handles TextBoxURL.TextChanged
+        url = TextBoxURL.Text
     End Sub
 
 #End Region
