@@ -1,13 +1,24 @@
 ﻿
+Imports System.Threading
 Imports Excel = Microsoft.Office.Interop.Excel
 Public Class AEGS
     Dim FileNameGS As String            'FILE NAME - GRADE SHEET EXCEL FILE
+    Dim username As String
+    Dim password As String
 
     Private Sub AEGS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'INITIALIZATION
+
+        Dim proc As Process
+
+        For Each proc In Process.GetProcessesByName("EXCEL")
+            proc.Kill()
+        Next
 
     End Sub
 
     Private Sub TextBoxUN_TextChanged(sender As Object, e As EventArgs) Handles TextBoxUN.TextChanged
+        username = TextBoxUN.Text
 
     End Sub
 
@@ -15,8 +26,8 @@ Public Class AEGS
 
     End Sub
 
-    Private Sub PW_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxPW.TextChanged
-
+    Private Sub TextBoxPW_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxPW.TextChanged
+        password = TextBoxPW.Text
     End Sub
 
     Private Sub BtnBrowse_Click(sender As Object, e As EventArgs) Handles BtnBrowse.Click
@@ -46,29 +57,117 @@ Public Class AEGS
 
             xlWb = xlApp.Workbooks.Open(FileNameGS)
 
-            xlApp.Visible = True
+            'xlApp.Visible = True
             xlWs = xlWb.ActiveSheet
 
             'CHECK INFO
-            Dim acadYr As String = xlWs.Range("B1").Value
-            Dim sem As String = xlWs.Range("B2").Value
-            Dim subjCode As String = xlWs.Range("B3").Value
-            Dim courseCode As String = xlWs.Range("B4").Value
-            Dim year As String = xlWs.Range("B5").Value
-            Dim section As String = xlWs.Range("B6").Value
+            Dim dept As String = xlWs.Range("B1").Value
+            Dim sy As String = xlWs.Range("B2").Value
+            Dim sem As String = xlWs.Range("B3").Value
+            Dim subjCode As String = xlWs.Range("B4").Value
+            Dim section As String = xlWs.Range("B5").Value
             Dim lastRow As Integer = xlWs.UsedRange.Rows.Count
 
-            If acadYr <> "" Then
-                If sem <> "" Then
-                    If subjCode <> "" Then
-                        If courseCode <> "" Then
-                            If year <> "" Then
-                                If section <> "" Then
-                                    MessageBox.Show("Completely filled out")
-                                    WebBrowser.Navigate("sisfaculty.pup.edu.ph")
-                                    'Process.Start("https://www.twitter.com")
+            If dept <> "" Then
+                If sy <> "" Then
+                    If sem <> "" Then
+                        If subjCode <> "" Then
+                            If section <> "" Then
+                                MessageBox.Show("Completely filled out")
+                                WebBrowser.Navigate("http://192.168.254.118:8081/AEGiS-Test-Environment/")
 
-                                End If
+                                WaitForPageLoad()
+
+                                '1 - SIGN IN
+
+                                WebBrowser.Document.GetElementById("username").SetAttribute("value", username)
+                                WebBrowser.Document.GetElementById("password").SetAttribute("value", password)
+
+                                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("input")
+                                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Sign-In" Then
+                                        elem.Focus()
+                                        elem.InvokeMember("click")
+
+                                        Exit For
+                                        MessageBox.Show("Sign-In Clicked")
+                                    End If
+                                Next
+
+                                WaitForPageLoad()
+
+
+                                '2 - MESSAGES
+
+                                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("button")
+                                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Grading Sheet" Then
+                                        elem.Focus()
+                                        elem.InvokeMember("click")
+
+                                        Exit For
+                                        MessageBox.Show("Grading Sheet Clicked")
+                                    End If
+                                Next
+
+                                WaitForPageLoad()
+
+
+                                '3 - GRADING SHEET
+                                Dim elemOption As HtmlElement
+
+                                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "department")
+                                elemOption.Focus()
+                                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = dept).SetAttribute("selected", "selected")
+
+                                MessageBox.Show(dept & " selected")
+
+                                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "schoolYear")
+                                elemOption.Focus()
+                                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = sy).SetAttribute("selected", "selected")
+
+                                MessageBox.Show(sy & " selected")
+
+                                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "semester")
+                                elemOption.Focus()
+                                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = sem).SetAttribute("selected", "selected")
+
+                                MessageBox.Show(sem & " selected")
+
+                                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("input")
+                                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Search" Then
+                                        elem.Focus()
+                                        elem.InvokeMember("click")
+
+                                        Exit For
+                                        MessageBox.Show("Search Clicked")
+                                    End If
+                                Next
+
+                                'WaitForPageLoad()
+
+
+                                'loop: check all elements
+                                'if element value is "   Sign-In    ", click
+
+                                'loop: check if grades button exists
+                                'wait(time)
+                                'click grades
+
+                                'loop: check if subj code exists
+                                'wait(time)
+                                'click subject code
+
+                                'loop: check if CYS exists
+                                'wait(time)
+                                'click CYS
+
+                                'loop: check if _ exists
+                                'wait(time)
+
+                                'loop: find name
+                                'If found Then, Set midterm grade, Set final grade, Set cell value: "Encoded *date&time"
+                                'Else, next, set cell value: "Student not found"
+
+                                'Sign-out
                             End If
                         End If
                     End If
@@ -104,6 +203,19 @@ Public Class AEGS
         Dim misValue As Object = System.Reflection.Missing.Value
 
         'INITIALIZATION
+
+        Dim FileToDelete As String
+
+        FileToDelete = "C:\Users\" & SystemInformation.UserName & "\Documents\Grades Template.xls"
+
+        If IO.File.Exists(FileToDelete) = True Then
+
+            IO.File.Delete(FileToDelete)
+            MsgBox("File Deleted")
+
+        End If
+
+
         xlApp = New Excel.Application
 
         If xlApp Is Nothing Then
@@ -117,52 +229,54 @@ Public Class AEGS
         'CONTENT
         With xlWs
 
-            .Range("A1").Value = "School Year"
-            .Range("A2").Value = "Semester"
-            .Range("A3").Value = "Subject Code"
-            .Range("A4").Value = "Course Code"
-            .Range("A5").Value = "Year Level"
-            .Range("A6").Value = "Section"
+            .Range("A1").Value = "Department"
+            .Range("A2").Value = "School Year"
+            .Range("A3").Value = "Semester"
+            .Range("A4").Value = "Section"
+            .Range("A5").Value = "Subject Code"
 
-            .Range("B1").Value = "1920"
-            .Range("B2").Value = "First"
-            .Range("B3").Value = "COEN 3284"
-            .Range("B4").Value = "BSCOE"
-            .Range("B5").Value = "1"
-            .Range("B6").Value = "1"
-            .Range("B1:B6").HorizontalAlignment = Excel.Constants.xlLeft
+            .Range("B1").Value = "College"
+            .Range("B2").Value = "1920"
+            .Range("B3").Value = "First"
+            .Range("B4").Value = "BSCOE 5-4"
+            .Range("B5").Value = "BSCOE-ELEC3"
+            .Range("B1:B5").HorizontalAlignment = Excel.Constants.xlLeft
 
             .Columns(1).ColumnWidth = 12
             .Range("A8").Value = "No"
             .Range("A8:A9").Merge()
 
-            .Columns(2).ColumnWidth = 35
-            .Range("B8").Value = "Name"
+            .Columns(2).ColumnWidth = 16
+            .Range("B8").Value = "Student Number"
             .Range("B8:B9").Merge()
 
-            .Columns(3).ColumnWidth = 16
-            .Range("C8").Value = "Student Number"
+            .Columns(3).ColumnWidth = 35
+            .Range("C8").Value = "Name"
             .Range("C8:C9").Merge()
 
             .Range("D8").Value = "Grade"
             .Range("D8:E8").Merge()
             .Columns(4).ColumnWidth = 8.5
-            .Range("D9").Value = "Midterm"
+            .Range("D9").Value = "First"
             .Columns(5).ColumnWidth = 8.5
-            .Range("E9").Value = "Final"
+            .Range("E9").Value = "Second"
 
             .Columns(6).ColumnWidth = 10.5
             .Range("F8").Value = "Final Grade"
             .Range("F8:F9").Merge()
 
+            .Columns(7).ColumnWidth = 10.5
+            .Range("G8").Value = "Encoded"
+            .Range("G8:G9").Merge()
+
             .Range("A10").Value = "1"
-            .Range("B10").Value = "DELA CRUZ, JUAN B."
-            .Range("C10").Value = "2020-00001-MN-0"
+            .Range("B10").Value = "2020-00001-MN-0"
+            .Range("C10").Value = "DELA CRUZ, JUAN B."
             .Range("D10").Value = "1.00"
             .Range("E10").Value = "1.00"
             .Range("F10").Formula = "=AVERAGE(D10:E10)"
 
-            .Range("A8:F10").HorizontalAlignment = Excel.Constants.xlCenter
+            .Range("A8:G10").HorizontalAlignment = Excel.Constants.xlCenter
             .Range("B10").HorizontalAlignment = Excel.Constants.xlLeft
 
 
@@ -195,4 +309,27 @@ Public Class AEGS
     Private Sub WebBrowser_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser.DocumentCompleted
 
     End Sub
+
+
+    Private Property pageready As Boolean = False
+
+#Region "Page Loading Functions"
+    Private Sub WaitForPageLoad()
+        AddHandler WebBrowser.DocumentCompleted, New WebBrowserDocumentCompletedEventHandler(AddressOf PageWaiter)
+        While Not pageready
+            Application.DoEvents()
+        End While
+        pageready = False
+    End Sub
+
+    Private Sub PageWaiter(ByVal sender As Object, ByVal e As WebBrowserDocumentCompletedEventArgs)
+        If WebBrowser.ReadyState = WebBrowserReadyState.Complete Then
+            pageready = True
+            RemoveHandler WebBrowser.DocumentCompleted, New WebBrowserDocumentCompletedEventHandler(AddressOf PageWaiter)
+        End If
+    End Sub
+
+#End Region
+
+
 End Class
