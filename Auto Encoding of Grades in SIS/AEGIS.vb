@@ -46,6 +46,7 @@ Public Class AEGS
             Dim xlApp As Excel.Application
             Dim xlWb As Excel.Workbook
             Dim xlWs As Excel.Worksheet
+            Dim misValue As Object = System.Reflection.Missing.Value
             'Dim xlRan As Excel.Range
 
             xlApp = New Excel.Application
@@ -64,115 +65,214 @@ Public Class AEGS
             Dim dept As String = xlWs.Range("B1").Value
             Dim sy As String = xlWs.Range("B2").Value
             Dim sem As String = xlWs.Range("B3").Value
-            Dim subjCode As String = xlWs.Range("B4").Value
-            Dim section As String = xlWs.Range("B5").Value
+            Dim section As String = xlWs.Range("B4").Value
+            Dim subjCode As String = xlWs.Range("B5").Value
             Dim lastRow As Integer = xlWs.UsedRange.Rows.Count
 
-            If dept <> "" Then
-                If sy <> "" Then
-                    If sem <> "" Then
-                        If subjCode <> "" Then
-                            If section <> "" Then
-                                MessageBox.Show("Completely filled out")
-                                WebBrowser.Navigate("http://192.168.254.118:8081/AEGiS-Test-Environment/")
+            If dept <> "" And sy <> "" And sem <> "" And subjCode <> "" And section <> "" Then
+                MessageBox.Show("Completely filled out")
+                WebBrowser.Navigate("http://192.168.254.118:8081/AEGiS-Test-Environment/")
 
-                                WaitForPageLoad()
+                WaitForPageLoad()
 
-                                '1 - SIGN IN
+                '1 - SIGN IN
 
-                                WebBrowser.Document.GetElementById("username").SetAttribute("value", username)
-                                WebBrowser.Document.GetElementById("password").SetAttribute("value", password)
+                WebBrowser.Document.GetElementById("username").SetAttribute("value", username)
+                WebBrowser.Document.GetElementById("password").SetAttribute("value", password)
 
-                                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("input")
-                                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Sign-In" Then
-                                        elem.Focus()
-                                        elem.InvokeMember("click")
+                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("input")
+                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Sign-In" Then
+                        elem.Focus()
+                        elem.InvokeMember("click")
 
-                                        Exit For
-                                        MessageBox.Show("Sign-In Clicked")
-                                    End If
-                                Next
-
-                                WaitForPageLoad()
-
-
-                                '2 - MESSAGES
-
-                                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("button")
-                                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Grading Sheet" Then
-                                        elem.Focus()
-                                        elem.InvokeMember("click")
-
-                                        Exit For
-                                        MessageBox.Show("Grading Sheet Clicked")
-                                    End If
-                                Next
-
-                                WaitForPageLoad()
-
-
-                                '3 - GRADING SHEET
-                                Dim elemOption As HtmlElement
-
-                                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "department")
-                                elemOption.Focus()
-                                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = dept).SetAttribute("selected", "selected")
-
-                                MessageBox.Show(dept & " selected")
-
-                                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "schoolYear")
-                                elemOption.Focus()
-                                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = sy).SetAttribute("selected", "selected")
-
-                                MessageBox.Show(sy & " selected")
-
-                                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "semester")
-                                elemOption.Focus()
-                                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = sem).SetAttribute("selected", "selected")
-
-                                MessageBox.Show(sem & " selected")
-
-                                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("input")
-                                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Search" Then
-                                        elem.Focus()
-                                        elem.InvokeMember("click")
-
-                                        Exit For
-                                        MessageBox.Show("Search Clicked")
-                                    End If
-                                Next
-
-                                'WaitForPageLoad()
-
-
-                                'loop: check all elements
-                                'if element value is "   Sign-In    ", click
-
-                                'loop: check if grades button exists
-                                'wait(time)
-                                'click grades
-
-                                'loop: check if subj code exists
-                                'wait(time)
-                                'click subject code
-
-                                'loop: check if CYS exists
-                                'wait(time)
-                                'click CYS
-
-                                'loop: check if _ exists
-                                'wait(time)
-
-                                'loop: find name
-                                'If found Then, Set midterm grade, Set final grade, Set cell value: "Encoded *date&time"
-                                'Else, next, set cell value: "Student not found"
-
-                                'Sign-out
-                            End If
-                        End If
+                        Exit For
+                        MessageBox.Show("Sign-In Clicked")
                     End If
+                Next
+
+                WaitForPageLoad()
+
+
+                '2 - MESSAGES
+
+                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("button")
+                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Grading Sheet" Then
+                        elem.Focus()
+                        elem.InvokeMember("click")
+
+                        Exit For
+                        MessageBox.Show("Grading Sheet Clicked")
+                    End If
+                Next
+
+                WaitForPageLoad()
+
+
+                '3 - GRADING SHEET
+                Dim elemOption As HtmlElement
+
+                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "department")
+                elemOption.Focus()
+                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = dept).SetAttribute("selected", "selected")
+
+                'MessageBox.Show(dept & " selected")
+
+                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "schoolYear")
+                elemOption.Focus()
+                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = sy).SetAttribute("selected", "selected")
+
+                'MessageBox.Show(sy & " selected")
+
+                elemOption = WebBrowser.Document.GetElementsByTagName("select").Cast(Of HtmlElement).First(Function(el) el.GetAttribute("name") = "semester")
+                elemOption.Focus()
+                elemOption.GetElementsByTagName("option").Cast(Of HtmlElement).First(Function(el) el.InnerText = sem).SetAttribute("selected", "selected")
+
+                'MessageBox.Show(sem & " selected")
+
+                For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("input")
+                    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Search" Then
+                        elem.Focus()
+                        elem.InvokeMember("click")
+
+                        Exit For
+                        'MessageBox.Show("Search Clicked")
+                    End If
+                Next
+
+                'For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("table")
+                '    Dim tables As HtmlElementCollection = Me.WebBrowser.Document.GetElementsByTagName("table")
+                '    For Each tbl As HtmlElement In tables
+                '        For Each row As HtmlElement In tbl.All
+                '            For Each cell As HtmlElement In row.All
+                '                If cell.InnerText = section Then
+                '                    MessageBox.Show("correct section " & cell.InnerText)
+
+
+                '                Else
+                '                    Exit For
+                '                End If
+
+                '            Next
+                '        Next
+                '    Next
+
+
+                '    Exit For
+                '    MessageBox.Show("table done")
+                'Next
+
+                For Each button As HtmlElement In WebBrowser.Document.GetElementsByTagName("button")
+                    If button.GetAttribute("type") = "submit" And button.GetAttribute("value") = "<U>" & section & "</U>" Then
+                        button.Focus()
+                        button.InvokeMember("click")
+
+                        Exit For
+                        MessageBox.Show(section & " Clicked")
+                    End If
+                Next
+
+                WaitForPageLoad()
+
+                Dim text As String = WebBrowser.Document.GetElementById("status").InnerText
+
+                If text.Contains("Encoding Of Grades is Not Open.") Then
+                    MessageBox.Show("Encoding of grades is not open.")
+                    'Exit For
+                    WebBrowser.Stop()
+
+                ElseIf text.Contains("Encoding Of Grades is Open.") Then
+                    'Exit For
+                    MessageBox.Show("Encoding will now start.")
+
+                    'ENCODE
+
+
+                    'Excel GS LOOP
+
+                    For rowCtr As Byte = 10 To lastRow
+                        Dim counter As Byte = 1
+
+                        Dim SN As String = xlWs.Range("B" & rowCtr).Value
+                        Dim dFG As Decimal = xlWs.Range("D" & rowCtr).Value
+                        Dim FG As String = dFG.ToString("F2")
+                        Dim dSG As Decimal = xlWs.Range("E" & rowCtr).Value
+                        Dim SG As String = dSG.ToString("F2")
+                        Dim status As String = xlWs.Range("G" & rowCtr).Value
+
+
+                        If status = "Encoded" Then
+                            'next
+
+                        Else
+                            'MessageBox.Show(xlWs.Range("C" & rowCtr).Value & " " & FG & " " & SG)
+                            For Each table As HtmlElement In WebBrowser.Document.GetElementsByTagName("table")
+                                'MessageBox.Show("FOR EACH ELEM")
+                                Dim selectElements As HtmlElementCollection = Me.WebBrowser.Document.GetElementsByTagName("select")
+
+                                For Each sel As HtmlElement In selectElements
+                                    'MessageBox.Show("FOR EACH SEL")
+                                    'MessageBox.Show(sel.GetAttribute("name") & "-" & sel.GetAttribute("value") & "-" & sel.InnerText & "-" & sel.InnerHtml
+
+                                    If counter = 1 Then
+                                        If sel.GetAttribute("value") = "- not set -" Then
+                                            sel.SetAttribute("value", FG)
+                                            sel.Focus()
+                                            'MessageBox.Show(FG & " selected")
+                                            xlWs.Range("G" & rowCtr).Value = "Encoded"
+                                            counter += 1
+                                        Else
+                                            'MessageBox.Show("Already encoded, Next cell please")
+                                        End If
+                                    ElseIf counter = 2 Then
+                                        If sel.GetAttribute("value") = "- not set -" Then
+                                            sel.SetAttribute("value", SG)
+                                            sel.Focus()
+                                            'MessageBox.Show(SG & " selected")
+                                            xlWs.Range("G" & rowCtr).Value = "Encoded"
+                                            counter += 1
+
+                                        Else
+                                            'MessageBox.Show("Already encoded, Next cell please")
+                                        End If
+                                    Else
+                                        'MessageBox.Show("NEXT")
+                                    End If
+
+                                Next
+
+                                Exit For
+                            Next
+
+                        End If
+
+                    Next
+
+                    'For Each elem As HtmlElement In WebBrowser.Document.GetElementsByTagName("input")
+                    '    If elem.GetAttribute("type") = "submit" And elem.GetAttribute("value") = "Save" Then
+                    '        elem.Focus()
+                    '        elem.InvokeMember("click")
+                    '        MessageBox.Show("Save Clicked")
+                    '        Exit For
+                    '    End If
+                    'Next
+
+                    'END EXCEL
+
                 End If
+
             End If
+
+            MessageBox.Show("Encoding done. SIS will now logout and excel file will be saved.")
+
+            xlWb.Save()
+            xlWb.Close(True, misValue, misValue)
+            xlApp.Quit()
+
+            releaseObject(xlWs)
+            releaseObject(xlWb)
+            releaseObject(xlApp)
+
+            WebBrowser.Stop()
 
         Else
             MessageBox.Show("The file " + FileNameGS + " does not exist.")
@@ -266,7 +366,7 @@ Public Class AEGS
             .Range("F8:F9").Merge()
 
             .Columns(7).ColumnWidth = 10.5
-            .Range("G8").Value = "Encoded"
+            .Range("G8").Value = "Status"
             .Range("G8:G9").Merge()
 
             .Range("A10").Value = "1"
