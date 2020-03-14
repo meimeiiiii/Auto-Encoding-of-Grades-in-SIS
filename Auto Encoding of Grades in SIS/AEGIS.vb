@@ -178,7 +178,8 @@ Public Class AEGS
                 If text.Contains("Encoding Of Grades is Not Open.") Then
                     MessageBox.Show("Encoding of grades is not open.")
                     'Exit For
-                    WebBrowser.Stop()
+                    WebBrowser.Document.GetElementById("signout").InvokeMember("click")
+                    WebBrowser.Dispose()
 
                 ElseIf text.Contains("Encoding Of Grades is Open.") Then
                     'Exit For
@@ -257,12 +258,14 @@ Public Class AEGS
                     'Next
 
                     'END EXCEL
+                    MessageBox.Show("Encoding done. SIS will now logout and excel file will be saved.")
 
+                    WebBrowser.Document.GetElementById("signout").InvokeMember("click")
+                    WebBrowser.Dispose()
                 End If
 
             End If
 
-            MessageBox.Show("Encoding done. SIS will now logout and excel file will be saved.")
 
             xlWb.Save()
             xlWb.Close(True, misValue, misValue)
@@ -272,7 +275,6 @@ Public Class AEGS
             releaseObject(xlWb)
             releaseObject(xlApp)
 
-            WebBrowser.Stop()
 
         Else
             MessageBox.Show("The file " + FileNameGS + " does not exist.")

@@ -45,6 +45,7 @@ Partial Class AEGS
         Me.TextBoxUN.BackColor = System.Drawing.Color.Maroon
         Me.TextBoxUN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxUN.Font = New System.Drawing.Font("Montserrat", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxUN.ForeColor = System.Drawing.Color.White
         Me.TextBoxUN.Location = New System.Drawing.Point(12, 155)
         Me.TextBoxUN.Name = "TextBoxUN"
         Me.TextBoxUN.Size = New System.Drawing.Size(235, 24)
@@ -81,6 +82,7 @@ Partial Class AEGS
         Me.TextBoxPW.BackColor = System.Drawing.Color.Maroon
         Me.TextBoxPW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxPW.Font = New System.Drawing.Font("Montserrat", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxPW.ForeColor = System.Drawing.Color.White
         Me.TextBoxPW.Location = New System.Drawing.Point(12, 229)
         Me.TextBoxPW.Name = "TextBoxPW"
         Me.TextBoxPW.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
@@ -123,6 +125,7 @@ Partial Class AEGS
         Me.TextBoxGS.BackColor = System.Drawing.Color.Maroon
         Me.TextBoxGS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxGS.Font = New System.Drawing.Font("Montserrat", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxGS.ForeColor = System.Drawing.Color.White
         Me.TextBoxGS.Location = New System.Drawing.Point(12, 309)
         Me.TextBoxGS.Name = "TextBoxGS"
         Me.TextBoxGS.Size = New System.Drawing.Size(235, 23)
@@ -147,7 +150,7 @@ Partial Class AEGS
         Me.WebBrowser.Location = New System.Drawing.Point(259, 0)
         Me.WebBrowser.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser.Name = "WebBrowser"
-        Me.WebBrowser.Size = New System.Drawing.Size(1014, 558)
+        Me.WebBrowser.Size = New System.Drawing.Size(1019, 697)
         Me.WebBrowser.TabIndex = 8
         '
         'GetGSTemplate
@@ -155,7 +158,7 @@ Partial Class AEGS
         Me.GetGSTemplate.FlatAppearance.BorderSize = 0
         Me.GetGSTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GetGSTemplate.Font = New System.Drawing.Font("Montserrat", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GetGSTemplate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(4, Byte), Integer), CType(CType(7, Byte), Integer))
+        Me.GetGSTemplate.ForeColor = System.Drawing.Color.White
         Me.GetGSTemplate.Location = New System.Drawing.Point(29, 521)
         Me.GetGSTemplate.Name = "GetGSTemplate"
         Me.GetGSTemplate.Size = New System.Drawing.Size(202, 28)
@@ -180,17 +183,17 @@ Partial Class AEGS
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(261, 561)
+        Me.Panel1.Size = New System.Drawing.Size(261, 697)
         Me.Panel1.TabIndex = 10
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.999999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Montserrat SemiBold", 8.999999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Goldenrod
-        Me.Label2.Location = New System.Drawing.Point(177, 80)
+        Me.Label2.Location = New System.Drawing.Point(175, 85)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 15)
+        Me.Label2.Size = New System.Drawing.Size(64, 17)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "by AGMU"
         '
@@ -198,11 +201,11 @@ Partial Class AEGS
         '
         Me.Label1.AutoSize = True
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Montserrat ExtraBold", 50.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(239, 76)
+        Me.Label1.Size = New System.Drawing.Size(253, 92)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "AEGiS"
         '
@@ -211,7 +214,7 @@ Partial Class AEGS
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1274, 561)
+        Me.ClientSize = New System.Drawing.Size(1280, 697)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.WebBrowser)
         Me.Cursor = System.Windows.Forms.Cursors.Default
